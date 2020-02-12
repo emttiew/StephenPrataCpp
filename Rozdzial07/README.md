@@ -17,16 +17,16 @@ osobnych funkcjach przetwarzających tablice.
 
 
 3. Oto deklaracja pewnej struktury: 
-
-struct pudlo
-{
-    char producent[40];
-    float wysokosc;
-    float szerokosc;
-    float dlugosc;
-    float objetosc;
-};
-
+```
+	struct pudlo
+	{
+	    char producent[40];
+	    float wysokosc;
+	    float szerokosc;
+	    float dlugosc;
+	    float objetosc;
+	};
+```
 a) Napisz funkcję, której struktura pudlo zostanie przekazana przez wartość i która wyświetli
 wartości wszystkich pól.
 
@@ -52,7 +52,6 @@ Ogólnie, jeśli n jest większe od zera, n! = n(n-1)! Przetestuj funkcję w pro
 z pętli, w której użytkownik może zadawać różne liczby, dla których będzie liczona silnia.
 
 6. Napisz program wykorzystujący następujące funkcje:
-
 Funkcja fill_array() jako parametr pobiera nazwę tablicy liczb double oraz wiellkość tej tablicy.
 Użytkownik jest proszony o podanie wartości double, które zostaną wpisane do tablicy. Pobieranie
 danych jest przerywane, kiedy tablica jest pełna lub kiedy użytkownik poda daną niebędącą
@@ -74,15 +73,16 @@ elementem. Inne funkcje mają używać tego wskaźnika jako drugiego parametru p
 mającej dwa parametry double, zwracającej wartość double. Sama funkcja calculate() też ma
 być typu double i ma zwracać wartość, którą wyliczy wskazywana funkcja po przekazaniu jej obu
 parametrów calculate(). Załóżmy na przykład, że mamy następującą definicję funkcji add():
+```
 	double add(double x, double y)
 	{
 		return x + y:
 	}
-
+```
 Wtedy wywołanie:
-
+```
 	double q = calculate(2.5, 10.4, add);
-
+```
 ma spowodować, że calculate() przekaże funkcji add() wartości 2,5 oraz 10,4, a następnie
 zwróci wartość uzyskaną z add () (czyli w tym przypadku 12,9).
 
@@ -92,9 +92,9 @@ będzie wywoływana funkcja calculate() wywołująca add() i przynajmniej jedną
 dodatkową. Osoby, które chcą wziąć się za bary z C++, mogą stworzyć tablicę wskaźników
 funkcji podobnych do add () i w pętli stosować calculate() z tymi funkcjami. Podpowiedź:
 deklaracja takiej tablicy z trzema wskaźnikami powinna wyglądać następująco:
-
+```
 	double (*pf[3]) (double, double);
-
+```
 Tablicę można zainicjalizować z wykorzystaniem normalnej składni inicjalizacji tablic,
 podając nazwy funkcji jako adresy.
 
