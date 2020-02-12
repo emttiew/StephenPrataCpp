@@ -19,18 +19,18 @@ Należy użyć w miarę potrzeb const.
 tego łańcucha na wielkie litery. Użyj funkcji toupper() opisanej w tabeli 6.4. Napisz program,
 który w pętli pozwoli przećwiczyć wprowadzanie danych do tej funkcji. Oto wynik przykładowego
 uruchomienia tego kodu:
-
+```
 Podaj tańcuch (q, aby skończyć): odejdź stąd
 ODEJDŹ STĄD
 Następny tańcuch (q, aby skończyć) : niezły pasztet!
 NIEZŁY PASZTET!
 Następny łańcuch (q, aby skofńczyć): q
 Do widzenia
-
+```
 
 4. Oto szkielet pewnego programu:
 
-
+```c++
 #include <iostream>
 using namespace std;
 #include <cstring>
@@ -58,7 +58,7 @@ struct stringy {
 	show("Gotowe!");
 	return 0;
 }
-
+```
 
 Uzupełnij powyższy szkielet, definiując opisane funkcje i dodając im prototypy. Zauważmy,
 że potrzebne są dwie funkcje show(), obie z parametrami domyślnymi. W razie potrzeby użyj
