@@ -1,4 +1,4 @@
-# StephenPrataCpp Rozdział 07 - Polecenia: 
+# StephenPrataCpp Rozdział 08 - Polecenia: 
 
  
 1. Napisz funkcję, która normalnie pobiera jeden parametr, adres łańcucha, po czym zaraz pokazuje
