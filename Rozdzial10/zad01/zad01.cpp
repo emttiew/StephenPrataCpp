@@ -6,6 +6,6 @@ int main(){
 	bank.show_data();
 	bank.deposit(1000000);
 	bank.withdraw(500000000);
-	bank.show_data();
+	bank.show_data();	
 	return 0;
 }
