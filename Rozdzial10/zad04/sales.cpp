@@ -1,12 +1,24 @@
-#include "sales.h"
+#include "sales2.h"
 #include <iostream>
 
 namespace SALES {
-    Sales::Sales(){      
+    Sales::Sales(){   
+        using std::cin;   
         int i = 0;
         std::cout << "Wprowadź wartości sprzedaży z 4 kwartałów:\n";
-        while (std::cin && i < QUARTERS){
-            std::cin >> sales[i];
+        while (cin && i < QUARTERS){
+            cin >> sales[i];
+            if(!cin){
+			cin.clear();
+			while (cin.get() != '\n')
+				continue;
+			std::cout << "Błędne dane, wprawadzanie przerwane.\n";
+            while (i < QUARTERS){
+                sales[i] = 0.0;
+                i++;
+            }
+            break;
+		}
             i++;
         }
         _average = sales[0];

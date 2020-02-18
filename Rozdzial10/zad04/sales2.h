@@ -1,3 +1,6 @@
+#ifndef SALES2_H_
+#define SALES2_H_
+
 namespace SALES {
     class Sales {
         enum { QUARTERS = 4 };
@@ -18,3 +21,5 @@ namespace SALES {
         void showSales() const;
     };
 }
+
+#endif
