@@ -1,6 +1,7 @@
 #include "move.h"
 #include <iostream>
 
+
 Move::Move(double a, double b)
 {
     x = a;
