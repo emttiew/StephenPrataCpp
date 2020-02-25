@@ -13,7 +13,7 @@ typedef customer Item;
 class Stack
 {
     private:
-        enum { MAX = 10};    // stała zasięgu klasy
+        enum { MAX = 10 };    // stała zasięgu klasy
         Item items[MAX];     // przechowuje elementy stosu
         int top;             // indeks szczytowego elementu stosu
     public:
