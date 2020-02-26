@@ -4,10 +4,15 @@
 #include <cstdlib>    // prototypy funkcji rand() i srand()
 #include <ctime>      // prototyp funkcji time()
 #include "vect.h"
+#include <fstream>
 
 int main()
 {
     using namespace std;
+
+    ofstream myfile;
+	myfile.open("zad01.txt");
+
     using VECTOR::Vector;
     srand(time(0));   // inicjalizacja generatora liczb pseudolosowych
     double direction;
@@ -22,6 +27,8 @@ int main()
         cout << "Podaj długość kroku: ";
         if (!(cin >> dstep))
             break;
+        
+        myfile << steps << ": " << result << endl;
 
         while (result.magval() < target)
         {
@@ -29,13 +36,15 @@ int main()
             step.reset(dstep, direction, Vector::POL);
             result = result + step;
             steps++;
+
+            myfile << steps << ": " << result << endl;
         }
-        cout << "Po " << steps << " krokach delikwent "
+        myfile << "Po " << steps << " krokach delikwent "
             "osiągnął położenie:\n";
-        cout << result << endl;
+        myfile << result << endl;
         result.polar_mode();
-        cout << " czyli\n" << result << endl;
-        cout << "Średnia długość kroku pozornego = "
+        myfile << " czyli\n" << result << endl;
+        myfile << "Średnia długość kroku pozornego = "
             << result.magval()/steps << endl;
         steps = 0;
         result.reset(0.0, 0.0);
@@ -45,6 +54,8 @@ int main()
     cin.clear();
     while (cin.get() != '\n')
         continue;
+    
+    myfile.close();
     return 0;
 }
 
