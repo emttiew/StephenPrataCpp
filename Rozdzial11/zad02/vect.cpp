@@ -15,35 +15,35 @@ namespace VECTOR
     // powinno wyjść około 57.2957795130823
     // metody prywatne
     // oblicza długość wektora ze składowych x i y
-    void Vector::set_mag()
-    {
-        mag = sqrt(x * x + y * y);
-    }
+    // void Vector::set_mag()
+    // {
+    //     mag = sqrt(x * x + y * y);
+    // }
 
-    void Vector::set_ang()
-    {
-        if (x == 0.0 && y == 0.0)
-            ang = 0.0;
-        else
-            ang = atan2(y, x);
-    }
+    // void Vector::set_ang()
+    // {
+    //     if (x == 0.0 && y == 0.0)
+    //         ang = 0.0;
+    //     else
+    //         ang = atan2(y, x);
+    // }
 
     // oblicza składową x ze współrzędnych biegunowych
-    void Vector::set_x()
-    {
-        x = mag * cos(ang);
-    }
+    // void Vector::set_x()
+    // {
+    //     x = mag * cos(ang);
+    // }
 
-    // oblicza składową y ze współrzędnych biegunowych
-    void Vector::set_y()
-    {
-        y = mag * sin(ang);
-    }
+    // // oblicza składową y ze współrzędnych biegunowych
+    // void Vector::set_y()
+    // {
+    //     y = mag * sin(ang);
+    // }
 
     // metody publiczne
     Vector::Vector()          // konstruktor domyślny
     {
-        x = y = mag = ang = 0.0;
+        x = y = 0.0;
         mode = RECT;
     }
 
@@ -55,24 +55,35 @@ namespace VECTOR
         if (form == RECT)
         {
             x = n1;
-            y = n2;
-            set_mag();
-            set_ang();
+            y = n2;            
         }
         else if (form == POL)
         {
-            mag = n1;
-            ang = n2 / Rad_to_deg;
-            set_x();
-            set_y();
+            double mag = n1;
+            double ang = n2 / Rad_to_deg;
+            x = mag * cos(ang);
+            y = mag * sin(ang);
         }
         else
         {
             cout << "Niepoprawna wartość trzeciego argumentu Vector() -- ";
             cout << "zeruję wektor\n";
-            x = y = mag = ang = 0.0;
+            x = y = 0.0;
             mode = RECT;
         }
+    }
+
+    double Vector::magval() const
+    {
+         return sqrt(x * x + y * y);
+    }
+
+    double Vector::angval() const 
+    {         
+        if (x == 0.0 && y == 0.0)
+            return 0.0;
+        else
+            return atan2(y, x);
     }
 
     // zerowanie wartości wektora dla zadanych współrzędnych kartezjańskich (dla RECT)
@@ -84,21 +95,19 @@ namespace VECTOR
         {
             x = n1;
             y = n2;
-            set_mag();
-            set_ang();
         }
         else if (form == POL)
         {
-            mag = n1;
-            ang = n2 / Rad_to_deg;
-            set_x();
-            set_y();
+            double mag = n1;
+            double ang = n2 / Rad_to_deg;
+            x = mag * cos(ang);
+            y = mag * sin(ang);
         }
         else
         {
             cout << "Niepoprawny trzeci argument set() -- ";
             cout << "zeruję wektor\n";
-            x = y = mag = ang = 0.0;
+            x = y = 0.0;
             mode = RECT;
         }
     }
@@ -153,12 +162,18 @@ namespace VECTOR
     // biegunowe w trybie POL)
     std::ostream & operator<<(std::ostream & os, const Vector & v)
     {
+        double mag = sqrt(v.x*v.x + v.y*v.y);
+		double ang;
+		if (v.x == 0.0 && v.y == 0.0)
+			ang = 0.0;
+    	else
+			ang = atan2(v.y,v.x);
         if (v.mode == Vector::RECT)
             os << "(x,y) = (" << v.x << ", " << v.y << ")";
         else if (v.mode == Vector::POL)
         {
-            os << "(m,a) = (" << v.mag << ", "
-                << v.ang * Rad_to_deg << ")";
+            os << "(m,a) = (" << mag << ", "
+                << ang * Rad_to_deg << ")";
         }
         else
             os << "Niepoprawny tryb reprezentacji obiektu wektora";
