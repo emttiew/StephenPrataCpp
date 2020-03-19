@@ -16,11 +16,11 @@ class Time
         void AddMin(int m);
         void AddHr(int h);
         void Reset(int h = 0, int m = 0);
-        Time operator+(const Time & t) const;
-        Time operator-(const Time & t) const;
-        Time operator*(double n) const;
-        friend Time operator*(double m, const Time & t)
-        { return t * m; } // definicja miejscowa (inline)
+        const friend Time operator+(const Time & t, const Time & d);
+        const friend Time operator-(const Time & t, const Time & d);
+        const friend Time operator*(double n, const Time & t);
+        friend Time operator*(const Time & t, double m)
+         { return m * t; } // definicja miejscowa (inline)
         friend ostream & operator<<(ostream & os, const Time & t);
 };
 #endif
