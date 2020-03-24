@@ -9,6 +9,15 @@ complex::complex(double rl, double im)
     imaginary = im;
 }
 
+complex::~complex()
+{
+}
+
+complex complex::operator~() const
+{    
+    return complex(real, -imaginary);
+}
+
 complex operator+(const complex & c1, const complex & c2)
 {
     complex sum;
@@ -45,4 +54,21 @@ complex operator*(const complex & c, const double d)
 {
     return (d * c);
 }
+
+std::ostream & operator<<(std::ostream & os, const complex & c)
+{
+    os << "(" << c.real << "," << c.imaginary << "i)";
+    return os;
+}
+
+std::istream & operator>>(std::istream & is, complex & c)
+{
+    std::cout << "Składowa rzeczywista: \n";
+    is >> c.real;
+    std::cout << "Sładowa urojona: \n";
+    is >> c.imaginary;
+    return is;
+}
+
+
 
