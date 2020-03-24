@@ -139,12 +139,12 @@ bool operator!=(const Stonewt & s1, const Stonewt & s2)
 std::ostream & operator<<(std::ostream & os, const Stonewt & st)
 {
     if (st.mode == Stonewt::STONE)
-        os << st.stone << " kamieni, " << st.pds_left << " funtów\n";
+        os << st.stone << " kamieni, " << st.pds_left << " funtów";
     else if (st.mode == Stonewt::PDS_INT)
-        os << (int)st.pounds << " funtów\n";
+        os << (int)st.pounds << " funtów";
     else if (st.mode == Stonewt::PDS_DOUBLE)
-        os << st.pounds << " funtów\n";
+        os << st.pounds << " funtów";
     else 
-        os << "Niepoprawny tryb reprezentacji obiektu Stonewt\n";
+        os << "Niepoprawny tryb reprezentacji obiektu Stonewt";
     return os;
 }
