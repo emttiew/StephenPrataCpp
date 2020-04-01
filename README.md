@@ -1,5 +1,9 @@
 # StephenPrataCpp
-Rozwiązania ćwiczeń z książki "Język C++. Szkoła programowania" wydanie VI - Stephena Prata 
+<p align="center">
+<img src="https://github.com/emttiew/StephenPrataCpp/blob/master/GitResources/Images/cover.jpg">
+ </cp>
+
+## Rozwiązania ćwiczeń z książki "Język C++. Szkoła programowania" wydanie VI - Stephena Prata 
 
 Rozdział 7. Funkcje - składniki programów w C++
 
