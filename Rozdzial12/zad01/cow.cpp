@@ -15,10 +15,9 @@ Cow::Cow()
 Cow::Cow(const char * nm, const char * ho, double wt)
 {
     if (strlen(nm) < 20) 
-        strcpy(name, nm);
-    else 
         cout << "Za długie imie... możliwa utrata części danych.\n";
-        strcpy(name, nm);
+    strcpy(name, nm);
+   
     hobby = new char[strlen(ho) + 1];
     strcpy(hobby, ho);
     weight = wt;
