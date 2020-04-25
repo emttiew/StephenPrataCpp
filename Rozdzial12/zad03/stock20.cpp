@@ -6,15 +6,16 @@
 // konstruktory
 Stock::Stock()                   // konstruktor domyślny
 {
-    company = "bez nazwy";
+    company = nullptr;
     shares = 0;
     share_val = 0.0;
     total_val = 0.0;
 }
 
-Stock::Stock(const std::string & co, long n, double pr)
+Stock::Stock(const char * co, long n, double pr)
 {
-    company = co;
+    company = new char [strlen(co) + 1];
+    strcpy(company, co);
 
     if (n < 0)
     {
@@ -31,6 +32,7 @@ Stock::Stock(const std::string & co, long n, double pr)
 // destruktor klasy
 Stock::~Stock()               // wersja "dyskretna"
 {
+    delete [] company;
 }
 
 // pozostałe metody
@@ -76,24 +78,24 @@ void Stock::update(double price)
     set_tot();
 }
 
-void Stock::show() const
+std::ostream & operator<<(std::ostream & os, const Stock & st)
 {
-    using std::cout;
     using std::ios_base;
     // ustawienie formatu na #.###
     ios_base::fmtflags orig =
-        cout.setf(ios_base::fixed, ios_base::floatfield);
-    std::streamsize prec = cout.precision(3);
-    cout << "Spółka: " << company
-        << "  Liczba udziałów: " << shares << '\n';
+        os.setf(ios_base::fixed, ios_base::floatfield);
+    std::streamsize prec = os.precision(3);
+    os << "Spółka: " << st.company
+        << "  Liczba udziałów: " << st.shares << '\n';
     // ustawienie formatu na #.##
-    cout.precision(2);
+    os.precision(2);
  
-    cout << "  Cena udziału: " << share_val << " zł"
-        << "  Łączna wartość udziałów: " << total_val << " zł" << '\n';
+    os << "  Cena udziału: " << st.share_val << " zł"
+        << "  Łączna wartość udziałów: " << st.total_val << " zł" << '\n';
     // przywrócenie pierwotnego formatu
-    cout.setf(orig, ios_base::floatfield);
-    cout.precision(prec);
+    os.setf(orig, ios_base::floatfield);
+    os.precision(prec);
+    return os;
 }
 
 const Stock & Stock::topval(const Stock & s) const
