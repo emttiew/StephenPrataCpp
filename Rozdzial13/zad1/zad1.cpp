@@ -16,7 +16,7 @@ int main()
 
     cout << "Użycie wskaźnika na typ Cd:\n";
     pcd->Report();
-    pcd = &cd2;
+    pcd = &c2;
     pcd->Report();
 
     cout << "Wywołanie funkcji z argumentem w postaci referencji do typu Cd:\n";
