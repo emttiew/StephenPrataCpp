@@ -9,6 +9,7 @@ int main(void)
 
     cout << "Podaj nazwę wina: ";
     char lab[50];
+
     cin.getline(lab, 50);
     cout << "Podaj liczbę roczników: ";
     int yrs;
@@ -25,6 +26,6 @@ int main(void)
     more.Show(); 
     cout << "Łączna liczba butelek wina " << more.Label()
          << ": " << more.sum() << endl;
-    cout <, "Koniec\n";
+    cout << "Koniec\n";
     return 0;
 }
