@@ -2,16 +2,19 @@
 #define POKERPLAYER_HPP_
 
 #include "Person.hpp"
+#include <stdlib.h>
+#include <time.h>
 
 class Card
 {
 private:
+    std::string available_colors[4] = {"karo", "kier", "trefl", "pik"};
     std::string color;
     int number;
-public:
-    Card(std::string c) : color(c), number(rand()%52) {}
+public:   
     Card();
-    friend std::ostream & operator<<(std::ostream & os, const Card & cd);
+    friend std::ostream & operator<<(std::ostream & os, const Card & cd);    
+    ~Card() {}
 };
 
 class PokerPlayer : virtual public Person
@@ -21,19 +24,25 @@ private:
     Card card;
 public:
     PokerPlayer() : Person(), card(), color() {}
-    PokerPlayer(char * fullname, char * card_color) : Person(fullname), color(card_color), card(color) {}
+    PokerPlayer(char * fullname, char * card_color) : Person(fullname), color(card_color), card() {}
     const Card & Draw() const { return card; }
     virtual void Show() const;
     void ShowComponents() const;
-    void Set();
-    void SetComponents();
-    ~PokerPlayer();
+    void Set();   
+    ~PokerPlayer() {}
 };
+
+Card::Card()
+{
+    srand (time(NULL));
+    number = rand() % 52 + 1; 
+    color = available_colors[rand()%4];    
+}
 
 std::ostream & operator<<(std::ostream & os, const Card & cd)
 {
-    os << "Kolor: " << cd.color << "\n";
-    os << "Numer: " << cd.number;
+    os << "\tKolor: " << cd.color << "\n";
+    os << "\tNumer: " << cd.number;
 }
 void PokerPlayer::ShowComponents() const
 {   
@@ -48,15 +57,9 @@ void PokerPlayer::Show() const
 
 void PokerPlayer::Set()
 {
-    Person::Set();
-    std::cout << "Podaj kolor karty: \n";
-    getline(std::cin, color);    
+    Person::Set();   
 }
 
-void PokerPlayer::SetComponents()
-{
-    std::cout << "Podaj kolor karty: \n";
-    getline(std::cin, color);
-}
+
 
 #endif

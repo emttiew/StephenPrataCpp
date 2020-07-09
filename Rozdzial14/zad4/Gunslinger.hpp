@@ -16,7 +16,7 @@ public:
     void ShowComponents() const;
     void Set();
     void SetComponents();
-    ~Gunslinger();
+    ~Gunslinger() {}
 };
 
 void Gunslinger::Show() const

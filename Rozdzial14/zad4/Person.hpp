@@ -8,8 +8,9 @@ class Person
 private:
     std::string fullname;
 public:
-    Person(char * s = "brak") : fullname(s) {}
-    virtual ~Person() = 0;
+    Person(char * s) : fullname(s) {}
+    Person() {}
+    virtual ~Person() {}
     virtual void Show() const { std::cout << "FullName: " << fullname << "\n";}
     virtual void Set();
 };

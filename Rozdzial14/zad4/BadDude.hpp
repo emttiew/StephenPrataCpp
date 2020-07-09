@@ -13,7 +13,7 @@ public:
     const Card & CDraw() const;
     virtual void Show() const;
     void Set();
-    ~BadDude();
+    ~BadDude() {}
 };
 
 const double BadDude::GDraw() const 
@@ -37,7 +37,6 @@ void BadDude::Set()
 {
     Person::Set();
     Gunslinger::SetComponents();
-    PokerPlayer::SetComponents();
 }
 
 #endif
