@@ -11,6 +11,13 @@ public:
     Person(char * s = "brak") : fullname(s) {}
     virtual ~Person() = 0;
     virtual void Show() const { std::cout << "FullName: " << fullname << "\n";}
+    virtual void Set();
 };
+
+void Person::Set()
+{
+    std::cout << "Podaj imię oraz nazwisko: \n";
+    getline(std::cin, fullname);
+}
 
 #endif
