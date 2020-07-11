@@ -22,6 +22,8 @@ int main(void)
     cin.get();
     highfink hf2;
     hf2.SetAll();
+   
+
 
     cout << "Używa wskaźnika abstr_emp *:\n";
     abstr_emp  * tri[4] = {&em, &fi, &hf, &hf2};
