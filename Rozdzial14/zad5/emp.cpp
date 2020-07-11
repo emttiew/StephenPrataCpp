@@ -25,7 +25,6 @@ std::ostream & operator<<(std::ostream & os, const abstr_emp & e)
 {
     os << "Imię: " << e.fname << '\n';
     os << "Nazwisko: " << e.lname << '\n';
-    os << "Praca: " << e.job << '\n';
     return os;
 }
 
