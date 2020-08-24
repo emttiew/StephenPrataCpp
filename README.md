@@ -1,4 +1,8 @@
 # StephenPrataCpp
+Solutions of exercises from the book "C++ language. Programming school" 6th edition - Stephen Prata
+
+The content and most of the comments are written in Polish, because I have such an edition of the book. Hopefully the code can be of use to anyone anyway.
+
 <p align="center">
 <img src="https://github.com/emttiew/StephenPrataCpp/blob/master/GitResources/Images/cover.jpg">
  </cp>
